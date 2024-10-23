@@ -1,8 +1,8 @@
-import { useState, lazy, Suspense } from "react";
-import reactLogo from "./assets/react.svg";
-import "./App.css";
+import { useState, lazy, Suspense } from 'react';
+import reactLogo from './assets/react.svg';
+import './App.css';
 //@ts-expect-error - This is a remote component
-import ViteRemote from "viteRemote/App";
+import ViteRemote from 'viteRemote/App';
 // import { init, loadRemote } from "@module-federation/enhanced/runtime";
 // import React from "react";
 // import ReactDOM from "react-dom";
@@ -58,7 +58,7 @@ function App() {
       </div>
       <h1>Rspack + React + TypeScript</h1>
       <div className="card">
-        <button type="button" onClick={() => setCount((count) => count + 1)}>
+        <button type="button" onClick={() => setCount(count => count + 1)}>
           count is {count}
         </button>
         <p>
@@ -69,7 +69,7 @@ function App() {
         Click on the Rspack and React logos to learn more
       </p>
       <h2>Vite Remote</h2>
-      <div style={{ border: "1px solid red" }}>
+      <div style={{ border: '1px solid red' }}>
         <Suspense fallback="Loading Vite Remote">
           <ViteRemote />
         </Suspense>

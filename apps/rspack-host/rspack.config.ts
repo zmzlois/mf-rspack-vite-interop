@@ -55,7 +55,7 @@ export default defineConfig({
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "rspack-host",
+      name: "rspack_host",
       remoteType: "module",
       remotes: {
         viteRemote: "http://localhost:5173/dd/remoteEntry.js"

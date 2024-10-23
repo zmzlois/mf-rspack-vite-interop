@@ -1,11 +1,11 @@
 {
-  "name": "rspack-host",
+  "name": "rspack_host",
   "private": true,
   "version": "1.0.0",
   "scripts": {
     "build": "cross-env NODE_ENV=production rspack build",
     "check": "biome check --write",
-    "devver": "cross-env NODE_ENV=development rspack serve",
+    "dev": "cross-env NODE_ENV=development rspack serve",
     "format": "biome format --write"
   },
   "dependencies": {

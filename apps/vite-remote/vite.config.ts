@@ -1,6 +1,7 @@
 import { federation } from "@module-federation/vite";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
+import topLevelAwait from "vite-plugin-top-level-await";
 // import topLevelAwait from "vite-plugin-top-level-await";
 
 // https://vitejs.dev/config/
@@ -19,18 +20,22 @@ export default defineConfig({
       },
       filename: "dd/remoteEntry.js",
       shared: {
-        vue: {},
+        // vue: {},
         react: {
           requiredVersion: "18"
         },
-        "react-dom": {}
-      }
-      // runtimePlugins: ["./src/mfPlugins"]
-    })
+        "react-dom": {
+          requiredVersion: "18"
+        }
+      },
+      runtimePlugins: ["./src/mfPlugin"]
+    }),
+    // eslint-disable-next-line no-constant-binary-expression
+    false && topLevelAwait()
     // If you set build.target: "chrome89", you can remove this plugin
     // false && topLevelAwait()
   ],
   build: {
-    target: "chrome89"
+    target: "esnext"
   }
 });

@@ -13,16 +13,16 @@ export default defineConfig({
   },
   tools: {
     rspack: (config, { appendPlugins }) => {
-      config.output!.uniqueName = 'app1';
+      config.output!.uniqueName = 'rust_host';
       appendPlugins([
         new ModuleFederationPlugin({
-          name: 'examples_rust',
+          name: 'rust_host',
           remotes: {
             viteRemote: 'http://localhost:5173/dd/remoteEntry.js',
           },
           remoteType: 'module',
           exposes: {
-            './app': './src/app.tsx',
+            './App': './src/App.tsx',
           },
           manifest: {
             filePath: 'manifestpath',
