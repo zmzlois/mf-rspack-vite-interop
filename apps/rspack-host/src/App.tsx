@@ -2,7 +2,7 @@ import { useState, lazy, Suspense } from "react";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
 //@ts-expect-error - This is a remote component
-const ViteRemote = lazy(async () => import("viteRemote/App"));
+import ViteRemote from "viteRemote/App";
 // import { init, loadRemote } from "@module-federation/enhanced/runtime";
 // import React from "react";
 // import ReactDOM from "react-dom";

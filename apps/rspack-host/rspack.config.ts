@@ -10,8 +10,10 @@ const targets = ["chrome >= 87", "edge >= 88", "firefox >= 78", "safari >= 14"];
 
 export default defineConfig({
   context: __dirname,
+  devServer: {},
   output: {
-    publicPath: "auto"
+    publicPath: "auto",
+    uniqueName: "app1"
   },
   entry: {
     main: "./src/main.tsx"
@@ -39,8 +41,8 @@ export default defineConfig({
                 transform: {
                   react: {
                     runtime: "automatic",
-                    development: isDev,
-                    refresh: isDev
+                    development: isDev
+                    // refresh: isDev
                   }
                 }
               },
@@ -53,15 +55,15 @@ export default defineConfig({
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "rspack_host",
-      // library: { type: "window" },
+      name: "rspack-host",
+      remoteType: "module",
       remotes: {
-        viteRemote: "viteRemote@http://localhost:3001/remoteEntry.js"
+        viteRemote: "http://localhost:5173/dd/remoteEntry.js"
       },
-      shared: {
-        react: { singleton: true },
-        "react-dom": { singleton: true }
-      }
+      manifest: {
+        filePath: "manifestpath"
+      },
+      shared: ["react", "react-dom"]
     }),
     new rspack.HtmlRspackPlugin({
       template: "./index.html"

@@ -4,12 +4,12 @@
     const importMap = {
       
         "react": async () => {
-          let pkg = await import("__mf__virtual/viteRemote__prebuild__react__prebuild__.js")
+          let pkg = await import("__mf__virtual/vite_mf_2_remote__prebuild__react__prebuild__.js")
           return pkg
         }
       ,
         "react-dom": async () => {
-          let pkg = await import("__mf__virtual/viteRemote__prebuild__react_mf_2_dom__prebuild__.js")
+          let pkg = await import("__mf__virtual/vite_mf_2_remote__prebuild__react_mf_2_dom__prebuild__.js")
           return pkg
         }
       
@@ -21,7 +21,7 @@
             version: "18.3.1",
             scope: ["default"],
             loaded: false,
-            from: "viteRemote",
+            from: "vite-remote",
             async get () {
               usedShared["react"].loaded = true
               const {"react": pkgDynamicImport} = importMap 
@@ -38,7 +38,7 @@
             },
             shareConfig: {
               singleton: false,
-              requiredVersion: "18"
+              requiredVersion: "^18.3.1"
             }
           }
         ,
@@ -47,7 +47,7 @@
             version: "18.3.1",
             scope: ["default"],
             loaded: false,
-            from: "viteRemote",
+            from: "vite-remote",
             async get () {
               usedShared["react-dom"].loaded = true
               const {"react-dom": pkgDynamicImport} = importMap 
